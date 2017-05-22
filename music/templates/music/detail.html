@@ -1,0 +1,49 @@
+{% extends 'music/base.html' %}
+
+{% block title %} {{ album.title }}, {{ album.artist }} {% endblock %} 
+
+{% block body %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <img src="{{ album.cover }}" />
+                    <h1>{{ album.title }}</h1>
+                    <h3>{{ album.artist }}</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>All songs</h3>
+
+                {% if error_message %}
+                <p>{{ error_message }}</p>
+                {% endif %}
+
+                <ul>
+                    {% for song in album.song_set.all %}
+
+                    <li>{{ song.songTitle }}</li>
+
+                    {% endfor %}
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

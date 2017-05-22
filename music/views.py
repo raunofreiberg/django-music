@@ -1,6 +1,19 @@
-from __future__ import unicode_literals
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.views import generic
+from .models import Album, Song
 
-def index(request):
-    return HttpResponse('<h1>Hi</h1>')
+
+class IndexView(generic.ListView):
+    model = Album
+    template_name = 'music/index.html'
+    context_object_name = 'all_albums'
+
+
+class SongsView(generic.ListView):
+    model = Song
+    template_name = 'music/songs.html'
+    context_object_name = 'all_songs'
+
+
+class DetailView(generic.DetailView):
+    model = Album
+    template_name = 'music/detail.html'

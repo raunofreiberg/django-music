@@ -1,0 +1,33 @@
+{% extends 'music/base.html' %}
+
+{% block title %} Index {% endblock %} 
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1 class="text-center">My sick albums:</h1>
+
+        {% if all_albums %} {% for album in all_albums %}
+
+        <div class="col-sm-6 col-md-3 text-center">
+            <div class="thumbnail">
+                <img src="{{ album.cover }}" alt="{{ album.title }}" class="album__cover">
+                <div class="caption">
+                    <h3>{{ album.title }}</h3>
+                    <p>{{ album.artist }}</p>
+                    <a href="{% url 'detail' album.id %}" class="btn btn-primary" role="button">View</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+
+<h3>No albums found</h3>
+
+{% endif %} {% endblock %}

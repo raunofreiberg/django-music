@@ -1,0 +1,22 @@
+{
+  "name": "django-music",
+  "version": "1.0.0",
+  "description": "testing django ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raunofreiberg/django-music.git"
+  },
+  "author": "Rauno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raunofreiberg/django-music/issues"
+  },
+  "homepage": "https://github.com/raunofreiberg/django-music#readme",
+  "devDependencies": {
+    "gulp-sass": "^3.1.0"
+  }
+}
