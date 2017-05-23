@@ -17,6 +17,7 @@
                 <div class="caption">
                     <h3>{{ album.title }}</h3>
                     <p>{{ album.artist }}</p>
+                    <p>{{ album.genre }}</p>
                     <a href="{% url 'detail' album.id %}" class="btn btn-primary" role="button">View</a>
                     <a href="{% url 'delete' album.id %}" class="btn btn-default" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
