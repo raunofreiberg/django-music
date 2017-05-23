@@ -1,14 +1,24 @@
-{% extends 'music/base.html' %}
-
-{% block title %} Songs {% endblock %}
+{% extends 'music/base.html' %} 
+{% block title %} Songs {% endblock %} 
 
 {% block body %}
-    <h1>All songs</h1>
-    
-    <ul>
-    {% for song in all_songs %}
-        <li>{{song.songTitle}}</li>
-    {% endfor %}    
-    </ul>
+
+<div class="col-sm-12 text-center">
+    <div class="thumbnail">
+        <div class="caption">
+            <h3>All songs</h3>
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
+            <ul>
+                {% for song in all_songs %}
+
+                <li>{{ song.songTitle }}</li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'music/base.html' %}
+{% extends 'music/base.html' %} 
 
 {% block title %} {{ album.title }}, {{ album.artist }} {% endblock %} 
 
@@ -8,41 +8,36 @@
 
     <div class="row">
 
-        <div class="col-sm-4">
+        <div class="col-md-6 text-center">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <img src="{{ album.cover }}" />
+                    <img src="{{ album.cover }}" class="album__cover" />
                     <h1>{{ album.title }}</h1>
                     <h3>{{ album.artist }}</h3>
                 </div>
             </div>
 
         </div>
-    </div>
+        <div class="col-sm-12 col-md-6 text-center">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>All songs</h3>
+                    {% if error_message %}
+                    <p>{{ error_message }}</p>
+                    {% endif %}
+                    <ul>
+                        {% for song in album.song_set.all %}
 
-    <div class="col-sm-8">
+                        <li>{{ song.songTitle }}</li>
 
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h3>All songs</h3>
-
-                {% if error_message %}
-                <p>{{ error_message }}</p>
-                {% endif %}
-
-                <ul>
-                    {% for song in album.song_set.all %}
-
-                    <li>{{ song.songTitle }}</li>
-
-                    {% endfor %}
-                </ul>
-
-
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-
     </div>
+
+
 
 </div>
 

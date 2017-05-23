@@ -11,4 +11,13 @@ urlpatterns = [
 
     # /music/songs
     url(r'^songs/$', views.SongsView.as_view(), name='songs'),
+
+    # /music/create
+    url(r'^create/$', views.CreateAlbum.as_view(), name='create'),
+
+    # /music/delete
+    url(r'^delete/(?P<pk>[0-9]+)/$', views.DeleteAlbum.as_view(), name='delete'),
+
+    # /music/edit
+    url(r'^edit/(?P<pk>[0-9]+)/$', views.EditAlbum.as_view(), name='edit'),
 ]

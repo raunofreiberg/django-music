@@ -4,3 +4,11 @@ body {
 .album__cover {
   width: 300px;
   height: 300px; }
+
+ul {
+  padding: 0;
+  list-style: none; }
+
+.d-inline-block {
+  display: inline-block;
+  padding: 0; }
