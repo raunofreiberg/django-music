@@ -33,7 +33,7 @@ class CreateAlbum(CreateView):
 
 class DeleteAlbum(DeleteView):
     model = Album
-    template_name = 'music/album_delete.html'
+    template_name = 'music/index.html'
     success_url = reverse_lazy('index')
 
 
@@ -41,6 +41,17 @@ class EditAlbum(UpdateView):
     model = Album
     template_name = 'music/album_edit.html'
     fields = ['title', 'genre', 'artist', 'cover']
+
+
+class AddSong(CreateView):
+    model = Song
+    template_name = 'music/song_create.html'
+    fields = ['songTitle']
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.instance.album_id = self.kwargs.get('pk')
+        return super(AddSong, self).form_valid(form)
 
 
 class UserFormView(View):
@@ -65,7 +76,8 @@ class UserFormView(View):
             user.set_password(password)
             user.save()
 
-            user = authenticate(username=username, password=password, first_name=first_name)
+            user = authenticate(username=username,
+                                password=password, first_name=first_name)
 
             if user != None:
 

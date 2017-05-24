@@ -33,6 +33,9 @@
 
                         {% endfor %}
                     </ul>
+                    <a href="{% url 'addsong' album.id %}">
+                        <button class="btn btn-primary">Add Songs</button>
+                    </a>
                 </div>
             </div>
         </div>

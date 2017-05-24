@@ -10,13 +10,29 @@
             {% if error_message %}
             <p>{{ error_message }}</p>
             {% endif %}
-            <ul>
-                {% for song in all_songs %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="text-center">Song</th>
+                        <th class="text-center">Album</th>
+                        <th class="text-center">Artist</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for song in all_songs %}
+                    <tr>
 
-                <li>{{ song.songTitle }}</li>                
+                        <th>{{ song.album.id }}</th>
+                        <td>{{ song.songTitle }}</td>
+                        <td>{{ song.album.title }}</td>
+                        <td>{{ song.album.artist }}</td>
 
-                {% endfor %}
-            </ul>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
