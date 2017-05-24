@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    
+
     # /music/
     url(r'^$', views.IndexView.as_view(), name='index'),
 
@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^create/$', views.CreateAlbum.as_view(), name='create'),
 
     # /music/delete
-    url(r'^/(?P<pk>[0-9]+)/delete$', views.DeleteAlbum.as_view(), name='delete'),
+    url(r'^(?P<pk>[0-9]+)/delete$',
+        views.DeleteAlbum.as_view(), name='delete'),
 
     # /music/edit
     url(r'^edit/(?P<pk>[0-9]+)/$', views.EditAlbum.as_view(), name='edit'),
