@@ -30,6 +30,7 @@ urlpatterns = [
     # /music/pk/addsong
     url(r'^(?P<pk>[0-9]+)/addsong$', views.AddSong.as_view(), name='addsong'),
 
+    # /music/pk/deletesong
     url(r'^(?P<pk>[0-9]+)/deletesong$',
         views.DeleteSong.as_view(), name='deletesong'),
 
