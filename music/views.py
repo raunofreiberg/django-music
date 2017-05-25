@@ -64,6 +64,8 @@ class DeleteSong(DeleteView):
     def get_success_url(self):
         return reverse_lazy('detail', kwargs={'pk': self.object.album.pk})
 
+# Not sure about this
+
 
 class UserFormView(View):
     form_class = UserForm
