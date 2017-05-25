@@ -1,8 +1,4 @@
-{% extends 'music/base.html' %} 
-
-{% block title %} {{ album.title }}, {{ album.artist }} {% endblock %} 
-
-{% block body %}
+{% extends 'music/base.html' %} {% block title %} {{ album.title }}, {{ album.artist }} {% endblock %} {% block body %}
 
 <div class="container-fluid">
 
@@ -30,14 +26,25 @@
                         {% for song in album.song_set.all %}
 
                         <li>{{ song.songTitle }}</li>
+                        
+                        <form action="{% url 'deletesong' song.id %}" method="post" style="display: inline-block">
+                            {% csrf_token %}
+                            <input type="hidden" name="song_id" value="{{ song.id }}" />
+                            <button type="submit" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                        </form>
 
                         {% endfor %}
                     </ul>
-                    <a href="{% url 'addsong' album.id %}">
-                        <button class="btn btn-primary">Add Songs</button>
-                    </a>
+
+
                 </div>
             </div>
+            <a href="{% url 'addsong' album.id %}">
+                <button class="btn btn-primary">Add Songs</button>
+            </a>
+            </form>
         </div>
     </div>
 
