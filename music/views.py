@@ -1,11 +1,12 @@
-from django.views import generic
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.shortcuts import render, redirect
-from django.views.generic import View
 from django.contrib.auth import authenticate, login
-from .models import Album, Song
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views import generic
+from django.views.generic import View
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+
 from .forms import UserForm
+from .models import Album, Song
 
 
 class IndexView(generic.ListView):
@@ -26,6 +27,7 @@ class SongsView(generic.ListView):
 
 
 class CreateAlbum(CreateView):
+    # asd
     model = Album
     template_name = 'music/album_create.html'
     fields = ['title', 'genre', 'artist', 'cover']
